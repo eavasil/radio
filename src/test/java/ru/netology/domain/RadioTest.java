@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @Test
-//    сигнальный тест проверки максимальной громкости
     void radioMan() {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
         assertEquals(10, radio.getMaxVolume());
@@ -65,6 +64,7 @@ class RadioTest {
         radio.decreaseVolume();
         assertEquals(radio.getMinVolume(), radio.getCurrentVolume());
     }
+
     @Test
     void decreaseVolumeWhen5() {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
@@ -78,8 +78,9 @@ class RadioTest {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
         radio.setCurrentVolume(radio.getMaxVolume());
         radio.decreaseVolume();
-        assertEquals((radio.getMaxVolume()-1), radio.getCurrentVolume());
+        assertEquals((radio.getMaxVolume() - 1), radio.getCurrentVolume());
     }
+
     @Test
     void setRadioStationWhenNull() {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
@@ -100,6 +101,7 @@ class RadioTest {
         radio.setRadioStation(radio.getMaxRadioStation());
         assertEquals(radio.getMaxRadioStation(), radio.getRadioStation());
     }
+
     @Test
     void setRadioStationMoreMax() {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
@@ -122,6 +124,7 @@ class RadioTest {
         radio.prevRadioStation();
         assertEquals(9, radio.getRadioStation());
     }
+
     @Test
     void prevRadioStationWhen5() {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
@@ -129,6 +132,7 @@ class RadioTest {
         radio.prevRadioStation();
         assertEquals(4, radio.getRadioStation());
     }
+
     @Test
     void prevRadioStationWhen9() {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
@@ -136,13 +140,15 @@ class RadioTest {
         radio.prevRadioStation();
         assertEquals(8, radio.getRadioStation());
     }
+
     @Test
     void nextRadioStationWhenNull() {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
         radio.setRadioStation(radio.getMinRadioStation());
         radio.nextRadioStation();
-        assertEquals((radio.getMinRadioStation()+1), radio.getRadioStation());
+        assertEquals((radio.getMinRadioStation() + 1), radio.getRadioStation());
     }
+
     @Test
     void nextRadioStationWhen5() {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
@@ -150,6 +156,7 @@ class RadioTest {
         radio.nextRadioStation();
         assertEquals(6, radio.getRadioStation());
     }
+
     @Test
     void nextRadioStationWhenMax() {
         ru.netology.domain.Radio radio = new ru.netology.domain.Radio();
@@ -157,5 +164,4 @@ class RadioTest {
         radio.nextRadioStation();
         assertEquals(radio.getMinRadioStation(), radio.getRadioStation());
     }
-
 }

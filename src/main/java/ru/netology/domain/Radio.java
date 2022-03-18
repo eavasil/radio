@@ -24,7 +24,6 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        //метод принимающий значение громкости
         if (currentVolume < minVolume) {
             return;
         }
@@ -37,7 +36,7 @@ public class Radio {
 
     public void increaseVolume() {
         if (currentVolume < maxVolume) {
-            this.currentVolume = currentVolume +1;
+            this.currentVolume = currentVolume + 1;
         }
         if (currentVolume >= maxVolume) {
             this.currentVolume = maxVolume;
@@ -68,16 +67,16 @@ public class Radio {
         return minRadioStation;
     }
 
-public void setRadioStation(int radioStation) {
-    //метод принимающий значение текущей радиостанции
-    if (radioStation > maxRadioStation) {
-        radioStation = minRadioStation;
+    public void setRadioStation(int radioStation) {
+        if (radioStation > maxRadioStation) {
+            radioStation = minRadioStation;
+        }
+        if (radioStation < minRadioStation) {
+            radioStation = maxRadioStation;
+        }
+        this.radioStation = radioStation;
     }
-    if (radioStation < minRadioStation) {
-        radioStation = maxRadioStation;
-    }
-    this.radioStation = radioStation;
-}
+
     public void prevRadioStation() {
         if (radioStation == minRadioStation) {
             setRadioStation(maxRadioStation);
